@@ -11,12 +11,16 @@ import java.util.concurrent.TimeUnit;
 
 public class Day11_01_PriorityTest {
 
-    WebDriver driver;
+    WebDriver driver;//instance variable olarak olusturulur.
 
+//NG => Next Generation Test kelimelerinden turetilmis,
+    // Cedric Besust tarafindan olusturulmustur.
+    // Test case'lerini siralama ozelligi (priority) ve
+    //test case'leri birbirine bagimliligi (dependsOnMethod) ozelligi vardir.
     @BeforeClass
     public void setUp(){
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver =new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 

@@ -32,8 +32,8 @@ public class Day11_03_SoftAssert {
     public void test01(){
         driver.get("http://amazon.com");
         String baslik = driver.getTitle();
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertFalse(baslik.contains("Amazon"));
+        SoftAssert softAssert = new SoftAssert();// obje uretilerek olusturulur.
+         softAssert.assertFalse(baslik.contains("Amazon"));
         softAssert.assertTrue(baslik.contains("Car"));
         softAssert.assertEquals("Online", baslik);
         softAssert.assertAll(); // yukarıdaki yaptığımız tüm doğrulamalar

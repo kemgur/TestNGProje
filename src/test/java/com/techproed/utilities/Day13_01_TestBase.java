@@ -1,17 +1,20 @@
-package com.techproed.test;
+package com.techproed.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class Day11_02_DependsOnMethodsTest {
+public abstract class Day13_01_TestBase {
+    //private-> sadece ayni class
+    //default -> ayni pakette
+    //protected -> ayni paket + child class'larda
+    //public -> her yerden ulasilabilir.
 
-    private WebDriver driver;
+    protected WebDriver driver;
     @BeforeClass
     public void setUp(){
         WebDriverManager.chromedriver().setup();
@@ -20,25 +23,8 @@ public class Day11_02_DependsOnMethodsTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
-    @Test (dependsOnMethods = "googleTest")
-    public void amazonTest() {
-        driver.get("http://amazon.com");
-
-    }
-
-    @Test (dependsOnMethods = "facebookTest")
-    public void googleTest() {
-        driver.get("http://google.com");
-
-    }
-
-    @Test
-    public void facebookTest(){
-        driver.get("http://facebook.com");
-    }
     @AfterClass
-    public void tearDown() {
-        driver.quit();
+    public void tearDown(){
+        //driver.quit();
     }
-
 }
