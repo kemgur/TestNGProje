@@ -36,6 +36,7 @@ public class Day11_02_DependsOnMethodsTest {
     public void facebookTest(){
         driver.get("http://facebook.com");
     }
+
     @AfterClass
     public void tearDown() {
         driver.quit();
