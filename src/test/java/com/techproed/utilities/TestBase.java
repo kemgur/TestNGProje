@@ -8,7 +8,8 @@ import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
 
-public abstract class Day13_01_TestBase {
+public class TestBase {
+
     //private-> sadece ayni class
     //default -> ayni pakette
     //protected -> ayni paket + child class'larda
