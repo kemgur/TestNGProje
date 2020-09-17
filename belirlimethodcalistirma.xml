@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite - belirli methodlar">
+    <test name="Test - method test">
+    <!--Class olusturmadan direkt method calistirmiyoruz.-->
+            <classes>
+                <class name="com.techproed.test.Day13_03_ActionsClassTest">
+                <!-- Clasi olusturduktan sonra artik methodlari olusturabiliriz. -->
+                    <methods>
+                        <!--Method eklemek icin "include" kullaniriz.-->
+                        <!--Sadece incude ettigimiz methodlar calisir.-->
+                        <include name="sagTiklama"> </include>
+                        <include name="hovOver"></include>
+                    </methods>
+                </class>
+                <class name="com.techproed.test.Day15_02_WaitTest">
+                    <methods>
+                        <!--exclude ile yazdigimiz methodlar haric,
+                        classtaki tum testler calistirilir-->
+                        <exclude name="implicitlyWait">
+
+                        </exclude>
+                    </methods>
+                </class>
+            </classes>
+
+
+    </test>
+</suite>

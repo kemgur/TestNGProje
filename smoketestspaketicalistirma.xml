@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<!--Yukarida bulunan bu satir bir kaliptir ve her TestNG dosyamizda olmasi gerekir.
+Bu kod, bu dosyanin veri tipini belirler-->
+<!-- Bu kisma testin ismi yazilir.Istediginiz ismi verebilirsiniz -->
+<suite name="Suite - smoketests paket testleri">
+    <test name="Test - smoketests paket testleri">
+
+        <packages>
+            <!-- Belirli paketleri calistirmak istersek bu yolu kullabiliriz.-->
+            <!-- yorumlariniz icin-->
+            <!-- CALISTIRMAK ISTEDIGINIZ PAKETLERI BURAYA YAZIN. -->
+            <!--CTR + SHIFT + F10 ILE RUN EDEBILIRSINIZ.-->
+            <package name="com.techproed.smoketests"></package>
+            <package name="com.techproed.excelautomation"></package>
+
+
+        </packages>
+
+
+
+    </test>
+</suite>

@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class FhcTripLoginTest extends Day13_01_TestBase { //Day18_05
 
-    @Test
+    @Test(  groups = {"fhctrip", "login"} )
     public void test() {
         driver.get("http://fhctrip-qa.com/Account/LogOn?ReturnUrl=%2FAdmin%2FUserAdmin");
         FhcTripLoginPage loginPage = new FhcTripLoginPage(driver);

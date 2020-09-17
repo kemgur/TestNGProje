@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class FhcTripHotelGrateTest extends TestBase {
 
 
-    @Test
+    @Test(  groups = {"fhctrip", "hotelolusturma"} )
     public void giris01() {
         driver.get("http://fhctrip-qa.com/Account/LogOn?ReturnUrl=%2FAdmin%2FUserAdmin");
         FhcTripLoginPage loginPage = new FhcTripLoginPage(driver);
@@ -18,7 +18,7 @@ public class FhcTripHotelGrateTest extends TestBase {
         loginPage.loginButonu.click();
 
     }
-    @Test
+    @Test()
     public void test01(){
         giris01();
         FhcTripHotelGratePage fhcTripHotelGratePage = new FhcTripHotelGratePage(driver);

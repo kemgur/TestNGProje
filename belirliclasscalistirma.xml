@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite - fhctrip-qa.com">
+    <test name="Test - fhctrip-qa testleri">
+        <classes>
+            <class name="com.techproed.test.Day17_02_Ornek_WebTable"></class>
+            <class name="com.techproed.test.FhcTripLoginTest"></class>
+            <class name="com.techproed.test.FhcTripHotelGrateTest"></class>
+        </classes>
+    </test>
+</suite>
