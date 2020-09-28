@@ -4,7 +4,7 @@
         <classes>
             <class name="com.techproed.test.Day17_02_Ornek_WebTable"></class>
             <class name="com.techproed.test.FhcTripLoginTest"></class>
-            <class name="com.techproed.test.FhcTripHotelGrateTest"></class>
+            <class name="com.techproed.test.FhcTripHotelCreateTest"></class>
         </classes>
     </test>
 </suite>

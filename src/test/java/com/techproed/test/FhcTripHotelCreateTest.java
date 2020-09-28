@@ -6,7 +6,7 @@ import com.techproed.utilities.TestBase;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class FhcTripHotelGrateTest extends TestBase {
+public class FhcTripHotelCreateTest extends TestBase {
 
 
     @Test(  groups = {"fhctrip", "hotelolusturma"} )

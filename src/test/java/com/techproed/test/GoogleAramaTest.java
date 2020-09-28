@@ -1,4 +1,4 @@
-package com.techproed.tests;
+package com.techproed.test;
 import com.techproed.pages.GoogleAramaPage;
 import com.techproed.utilities.ConfigurationReader;
 import com.techproed.utilities.Driver;
@@ -11,10 +11,10 @@ import org.testng.annotations.Test;
 
 // TestBaseFinal class'ını miras alıyoruz çünkü TestBaseFinal class'ının içerisinde
 // rapor almak için kullanacağımız nesneler ve methodlar var.
-public class GoogleAramaTest extends TestBaseFinall {
+public class  GoogleAramaTest extends TestBaseFinall {
 
 
-    // 1. Adım : Google.com'a gidelim.
+    // 1. A dım : Google.com'a gidelim.
     // 2. Adım : techproeducation araması yapalım
     // 3. Adım : sonuçlar içerisinde techproeducation.com var mı, doğrulayalım.
 

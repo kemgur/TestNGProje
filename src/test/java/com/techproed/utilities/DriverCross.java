@@ -1,43 +1,34 @@
 package com.techproed.utilities;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
-
 import java.util.concurrent.TimeUnit;
-
-public class Driver {
-
-    //Eger bir class'tan NESNE URETILMESINI ISTEMIYORSANIZ
-    //CONSTRUCTOR'I PRIVATE YAPABILIRSINIZ(  Class)
-    private Driver(){
-
-    }
-    //WebDriver nesnemizi, static olarak olusturduk,
-    // cunku program baslar baslamaz hafizada yer almasini istiyoruz.
+public class DriverCross {
+    // Eğer bir class'tan NESNE ÜRETİLMESİNİ İSTEMİYORSANIZ
+    // constructor'ı private yapabilirsiniz (Singleton Class)
+    private DriverCross(){ }
+    // WebDriver nesnemizi, static olarak oluşturduk, çünkü program başlar başlamaz
+    // hafızada yer almasını istiyoruz.
     static WebDriver driver;
-
-    //Programin herhangi bir yerinden getDriver() methodu cagtilarak
-    // hafizada STATIC  olarak olusturulmus DRIVER nesnesine erisebiliriz.
-    //Yani yeniden WebDriver nesnesi olusturmak zorunda degiliz.
-    public static WebDriver getDriver(){
-
-        //getDriver methodunu her seferinde cagirdimizda
-        // yeni bir ChromeDriver nesnesi olusacak mi?
-        //Eger driver null ise, olusturulmamissa yeniden olusturmana gerek yok
-        //Eger null ise; yeniden olusturabilirsin.
-//        if(driver == null) {
-//            WebDriverManager.chromedriver().setup();
-//            driver = new ChromeDriver();
-
-        if(driver == null) {
-            switch (ConfigurationReader.getProperty("browser")){
+    // Programın herhangi bir yerinden getDriver() methodu çağırılarak
+    // hafıza STATIC olarak oluşturulmuş DRIVER nesnesine erişebiliriz.
+    // Yani yeniden WebDriver nesnesi oluşturmak zorunda değiliz.
+    //Driver.getDriver()
+    public static WebDriver getDriver(String browser){
+        // Eğer driver nesnesi hafızada boşsa, oluşturulmamışsa yeniden oluşturmana gerek yok.
+        // Eğer null ise, yeniden oluşturabilirsin.
+        // Sadece ilk çağırıldığında bir tane nesne üret, sonraki çağırmalarda var olan nesnesi kullan.
+        // Eğer browser olarak gelen parametrenin değeri "null" ise, yani boş bir değer geldiyse
+        // o zaman güvenlik önlemi olarak, .properties dosyasından browser değerini al ve kullan
+        // eğer browser'in değeri null değilse hangisi geldiyse onu kullanabilirsiniz.
+        browser = browser == null ? ConfigurationReader.getProperty("browser") : browser ;
+        if(driver == null){
+            switch (browser){
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
@@ -50,13 +41,13 @@ public class Driver {
                     WebDriverManager.iedriver().setup();
                     driver = new InternetExplorerDriver();
                     break;
-                case "safari":
-                    WebDriverManager.getInstance(SafariDriver.class).setup();
-                    driver = new SafariDriver();
-                    break;
                 case "opera":
                     WebDriverManager.operadriver().setup();
                     driver = new OperaDriver();
+                    break;
+                case "safari":
+                    WebDriverManager.getInstance(SafariDriver.class).setup();
+                    driver = new SafariDriver();
                     break;
                 case "headless-chrome":
                     WebDriverManager.chromedriver().setup();
@@ -64,12 +55,10 @@ public class Driver {
                     break;
             }
         }
-
-
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         return driver;
-}
+    }
     public static void closeDriver(){
         // Eğer driver nesnesi NULL değilse, yani hafızada varsa
         if (driver != null){
@@ -77,5 +66,4 @@ public class Driver {
             driver = null;  // driver'ı hafızadan temizle.
         }
     }
-
 }

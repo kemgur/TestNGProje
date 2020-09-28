@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Paralel Test 2" parallel="classes" thread-count="2">
+    <test name="Class Paralel">
+        <classes>
+            <class name="com.techproed.smoketests.FacebookLoginTest"></class>
+            <class name="com.techproed.test.FhcTripHotelCreateTest"></class>
+            <class name="com.techproed.test.FhcTripLoginTest"></class>
+
+        </classes>
+    </test>
+</suite>

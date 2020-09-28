@@ -3,13 +3,9 @@
     <test name="Tum testler">
         <!-- TestNG de tum testleri calistirmak istersek,
         tum paketleri calistirmamiz yeterli olur.-->
-
             <packages>
                 <package name=".*"></package>
                 <!--Bu yontemle tum testleri run edebiliriz-->
             </packages>
-
-
     </test>
-
 </suite>
